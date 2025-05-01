@@ -1,0 +1,162 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mustafa's Tech & Gaming Zone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    header {
+      background: linear-gradient(90deg, #1f1f1f, #333);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      color: #ccc;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 10px;
+      border-left: 5px solid #0ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      color: #999;
+      font-size: 0.9em;
+    }
+
+    #langToggle {
+      margin-top: 10px;
+      background-color: #0ff;
+      color: #000;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mustafa's Tech & Gaming Zone</h1>
+    <p>Sharing knowledge about technology, gaming, and more!</p>
+    <button id="langToggle">العربية</button>
+  </header>
+
+  <nav>
+    <a href="#tech">Tech News</a>
+    <a href="#gaming">Gaming</a>
+    <a href="#deals">Deals</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="tech">
+    <div class="card">
+      <h2>Latest Tech Trends</h2>
+      <p>Explore new gadgets, software updates, and cool innovations in the world of technology.</p>
+    </div>
+  </section>
+
+  <section id="gaming">
+    <div class="card">
+      <h2>Gaming Updates</h2>
+      <p>Check out new game releases, updates, and my personal reviews on popular titles.</p>
+    </div>
+  </section>
+
+  <section id="deals">
+    <div class="card">
+      <h2>Hot Deals & Discounts</h2>
+      <p>Stay updated with the latest gaming and tech discounts from Steam, Epic Games, and more.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="card">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out: <strong>mustafa.techzone@example.com</strong></p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Mustafa's Zone. All rights reserved.
+  </footer>
+
+  <script>
+    const btn = document.getElementById('langToggle');
+    let isEnglish = true;
+
+    btn.addEventListener('click', () => {
+      isEnglish = !isEnglish;
+
+      document.querySelector('h1').textContent = isEnglish ? "Mustafa's Tech & Gaming Zone" : "منطقة مصطفى للتقنية والألعاب";
+      document.querySelector('header p').textContent = isEnglish ? "Sharing knowledge about technology, gaming, and more!" : "مشاركة المعرفة بالتقنية، الألعاب، والمزيد!";
+      btn.textContent = isEnglish ? "العربية" : "English";
+      
+      const sections = [
+        {
+          en: "Latest Tech Trends",
+          ar: "أحدث اتجاهات التقنية",
+          p_en: "Explore new gadgets, software updates, and cool innovations in the world of technology.",
+          p_ar: "استكشف أحدث الأجهزة والتحديثات البرمجية والابتكارات في عالم التقنية."
+        },
+        {
+          en: "Gaming Updates",
+          ar: "تحديثات الألعاب",
+          p_en: "Check out new game releases, updates, and my personal reviews on popular titles.",
+          p_ar: "اطلع على إصدارات الألعاب الجديدة وتحديثاتها ومراجعاتي الشخصية لأشهر الألعاب."
+        },
+        {
+          en: "Hot Deals & Discounts",
+          ar: "عروض وتخفيضات ساخنة",
+          p_en: "Stay updated with the latest gaming and tech discounts from Steam, Epic Games, and more.",
+          p_ar: "ابقَ على اطلاع بأحدث عروض الألعاب والتقنية من Steam و Epic Games وغيرها."
+        },
+        {
+          en: "Contact Me",
+          ar: "اتصل بي",
+          p_en: "Feel free to reach out: ",
+          p_ar: "لا تتردد في التواصل: "
+        }
+      ];
+
+      document.querySelectorAll('.card').forEach((card, i) => {
+        card.querySelector('h2').textContent = isEnglish ? sections[i].en : sections[i].ar;
+        card.querySelector('p').innerHTML = isEnglish ? sections[i].p_en : sections[i].p_ar + "<strong>mustafa.techzone@example.com</strong>";
